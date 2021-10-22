@@ -11,8 +11,8 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './dist'),
         publicPath: '/dist/',
-        filename: 'vue-easytree.js',
-        library: 'vue-easytree',
+        filename: 'vue-easy-tree.js',
+        library: 'vue-easy-tree',
         libraryTarget: 'umd',
         umdNamedDefine: true
     },

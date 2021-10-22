@@ -1,15 +1,15 @@
 {
-    "name": "@wchbrad/vue-easytree",
+    "name": "@wchbrad/vue-easy-tree",
     "description": "A Vue.js project",
     "version": "1.0.1",
     "author": "wchbrad <chao.wu.brad@foxmail.com>",
     "license": "MIT",
-    "private": false,
-    "main": "./dist/vue-easytree.js",
+    "private": true,
+    "main": "./dist/vue-easy-tree.js",
     "keywords": ["virtual", "tree", "bigdata", "largedata", "lazy loading", "vue"],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/wchbrad/vue-easytree.git"
+        "url": "git+https://github.com/wchbrad/vue-easy-tree.git"
     },
     "publishConfig": {
         "registry": "https://registry.npmjs.org/"

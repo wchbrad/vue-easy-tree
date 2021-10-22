@@ -1,9 +1,9 @@
-[![npm](https://img.shields.io/badge/npm-v1.0.1-blue)](https://www.npmjs.com/package/@wchbrad/vue-easytree)
+[![npm](https://img.shields.io/badge/npm-v1.0.1-blue)](https://www.npmjs.com/package/@wchbrad/vue-easy-tree)
 [![vue2](https://img.shields.io/badge/vue-2.6+-brightgreen.svg)](https://vuejs.org/)
-[![last commit](https://img.shields.io/badge/last--commit-today-green)](https://www.npmjs.com/package/@wchbrad/vue-easytree)
+[![last commit](https://img.shields.io/badge/last--commit-today-green)](https://www.npmjs.com/package/@wchbrad/vue-easy-tree)
 [![license](https://img.shields.io/npm/l/vue-easytable.svg?maxAge=2592000)](http://www.opensource.org/licenses/mit-license.php)
 
-# vue-easytree
+# vue-easy-tree
 
 [English](./README.md) | **中文**
 
@@ -13,7 +13,7 @@
 
 基于[element-ui](https://element.eleme.cn/#/zh-CN/component/tree)(License:MIT)中抽取的tree样式和功能，结合[vue-virtual-scroller](https://github.com/Akryum/vue-virtual-scroller)(License:MIT)所做的树组件。
 
-## v1.0.0 功能列表 [![npm](https://img.shields.io/badge/npm-v1.0.1-blue)](https://www.npmjs.com/package/@wchbrad/vue-easytree)
+## v1.0.0 功能列表 [![npm](https://img.shields.io/badge/npm-v1.0.1-blue)](https://www.npmjs.com/package/@wchbrad/vue-easy-tree)
 
 -   大数据量支持虚拟滚动
 -   基本树形数据的展示
@@ -35,13 +35,13 @@
 ## 安装
 
 ```
-npm install vue-easytree
+npm install vue-easy-tree
 ```
 
 或
 
 ```
-yarn add vue-easytree
+yarn add vue-easy-tree
 ```
 
 ## 引入
@@ -52,9 +52,9 @@ yarn add vue-easytree
 
 ```JS
 import Vue from "vue";
-import VueEasyTree from "vue-easytree";
+import VueEasyTree from "vue-easy-tree";
 // 样式文件，可以根据需要自定义样式或主题
-import "vue-easytree/src/assets/index.scss"
+import "vue-easy-tree/src/assets/index.scss"
 
 Vue.use(VueEasyTree)
 ```
@@ -64,9 +64,9 @@ Vue.use(VueEasyTree)
 在组件中引入：
 
 ```JS
-import VueEasyTree from "vue-easytree";
+import VueEasyTree from "vue-easy-tree";
 // 样式文件，可以根据需要自定义样式或主题
-import "vue-easytree/src/assets/index.scss"
+import "vue-easy-tree/src/assets/index.scss"
 
 export default {
   components: {
@@ -142,16 +142,16 @@ export default {
 $--color-primary: #ea5404;
 
 /* 改变 icon 字体路径变量，必需 */
-$--font-path: "~vue-easytree/src/assets/fonts";
+$--font-path: "~vue-easy-tree/src/assets/fonts";
 
-@import "vue-easytree/src/assets/index.scss";
+@import "vue-easy-tree/src/assets/index.scss";
 ```
-:warning: 需要注意的是，覆盖字体路径变量是必需的，将其赋值为 vue-easytree 中 icon 图标所在的相对路径即可。
+:warning: 需要注意的是，覆盖字体路径变量是必需的，将其赋值为 vue-easy-tree 中 icon 图标所在的相对路径即可。
 
 然后在 `main.js` 中直接引入以上样式文件即可：
 ```JS
 import Vue from 'vue'
-import VueEasyTree from "vue-easytree";
+import VueEasyTree from "vue-easy-tree";
 import "./css/ve-tree-var.scss"
 
 Vue.use(VueEasyTree)

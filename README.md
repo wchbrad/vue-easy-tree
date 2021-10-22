@@ -1,9 +1,9 @@
-[![npm](https://img.shields.io/badge/npm-v1.0.1-blue)](https://www.npmjs.com/package/@wchbrad/vue-easytree)
+[![npm](https://img.shields.io/badge/npm-v1.0.1-blue)](https://www.npmjs.com/package/@wchbrad/vue-easy-tree)
 [![vue2](https://img.shields.io/badge/vue-2.6+-brightgreen.svg)](https://vuejs.org/)
-[![last commit](https://img.shields.io/badge/last--commit-today-green)](https://www.npmjs.com/package/@wchbrad/vue-easytree)
+[![last commit](https://img.shields.io/badge/last--commit-today-green)](https://www.npmjs.com/package/@wchbrad/vue-easy-tree)
 [![license](https://img.shields.io/npm/l/vue-easytable.svg?maxAge=2592000)](http://www.opensource.org/licenses/mit-license.php)
 
-# vue-easytree
+# vue-easy-tree
 
 **English** | [中文](./README.zh-CN.md)
 
@@ -12,7 +12,7 @@ A tree component based on vue2.x that supports a small amount of data or a large
 
 Based on the tree style and function extracted from [element-ui](https://element.eleme.cn/#/en-US/component/tree)(License:MIT), combined with [vue-virtual-scroller](https://github.com/Akryum/vue-virtual-scroller)(License:MIT) tree component.
 
-## v1.0 Feature List [![npm](https://img.shields.io/badge/npm-v1.0.1-blue)](https://www.npmjs.com/package/@wchbrad/vue-easytree)
+## v1.0 Feature List [![npm](https://img.shields.io/badge/npm-v1.0.1-blue)](https://www.npmjs.com/package/@wchbrad/vue-easy-tree)
 
 -  Large data volume supports virtual scrolling
 -  Display of basic tree data
@@ -35,13 +35,13 @@ Based on the tree style and function extracted from [element-ui](https://element
 ## Install
 
 ```
-npm install vue-easytree
+npm install vue-easy-tree
 ```
 
 or
 
 ```
-yarn add vue-easytree
+yarn add vue-easy-tree
 ```
 
 ## Mount
@@ -52,9 +52,9 @@ Import in the `main.js` file:
 
 ```JS
 import Vue from "vue";
-import VueEasyTree from "vue-easytree";
+import VueEasyTree from "vue-easy-tree";
 // Style file, you can customize the style or theme according to your needs
-import "vue-easytree/src/assets/index.scss"
+import "vue-easy-tree/src/assets/index.scss"
 
 Vue.use(VueEasyTree)
 ```
@@ -64,9 +64,9 @@ Vue.use(VueEasyTree)
 Import in the component：
 
 ```JS
-import VueEasyTree from "vue-easytree";
+import VueEasyTree from "vue-easy-tree";
 // Style file, you can customize the style or theme according to your needs
-import "vue-easytree/src/assets/index.scss"
+import "vue-easy-tree/src/assets/index.scss"
 
 export default {
   components: {
@@ -142,16 +142,16 @@ By creating a new style file, such as: `ve-tree-var.scss`, write the following c
 $--color-primary: #ea5404;
 
 /* Change the icon font path variable, required */
-$--font-path: "~vue-easytree/src/assets/fonts";
+$--font-path: "~vue-easy-tree/src/assets/fonts";
 
-@import "vue-easytree/src/assets/index.scss";
+@import "vue-easy-tree/src/assets/index.scss";
 ```
-:warning: It should be noted that it is necessary to override the font path variable, and assign it to the relative path where the icon icon in vue-easytree is located.
+:warning: It should be noted that it is necessary to override the font path variable, and assign it to the relative path where the icon icon in vue-easy-tree is located.
 
 Then directly import the above style files in `main.js`：
 ```JS
 import Vue from 'vue'
-import VueEasyTree from "vue-easytree";
+import VueEasyTree from "vue-easy-tree";
 import "./css/ve-tree-var.scss"
 
 Vue.use(VueEasyTree)
