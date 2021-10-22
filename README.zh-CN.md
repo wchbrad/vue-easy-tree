@@ -35,13 +35,13 @@
 ## 安装
 
 ```
-npm install vue-easy-tree
+npm install @wchbrad/vue-easy-tree
 ```
 
 或
 
 ```
-yarn add vue-easy-tree
+yarn add @wchbrad/vue-easy-tree
 ```
 
 ## 引入

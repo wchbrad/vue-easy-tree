@@ -35,13 +35,13 @@ Based on the tree style and function extracted from [element-ui](https://element
 ## Install
 
 ```
-npm install vue-easy-tree
+npm install @wchbrad/vue-easy-tree
 ```
 
 or
 
 ```
-yarn add vue-easy-tree
+yarn add @wchbrad/vue-easy-tree
 ```
 
 ## Mount
