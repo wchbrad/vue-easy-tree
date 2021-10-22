@@ -1,10 +1,7 @@
-[![npm](https://img.shields.io/npm/v/vue-easytable.svg)](https://www.npmjs.com/package/vue-easytable)
+[![npm](https://img.shields.io/badge/npm-v1.0.1-blue)](https://www.npmjs.com/package/@wchbrad/vue-easytree)
 [![vue2](https://img.shields.io/badge/vue-2.6+-brightgreen.svg)](https://vuejs.org/)
-[![NPM downloads](https://img.shields.io/npm/dm/vue-easytable.svg?style=flat)](https://npmjs.org/package/vue-easytable)
-[![codecov](https://codecov.io/gh/Happy-Coding-Clans/vue-easytable/branch/master/graph/badge.svg?token=UJy3LHInUn)](https://codecov.io/gh/Happy-Coding-Clans/vue-easytable)
+[![last commit](https://img.shields.io/badge/last--commit-today-green)](https://www.npmjs.com/package/@wchbrad/vue-easytree)
 [![license](https://img.shields.io/npm/l/vue-easytable.svg?maxAge=2592000)](http://www.opensource.org/licenses/mit-license.php)
-[![Discord](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/gBm3k6r)
-[![Gitter](https://badges.gitter.im/vue-easytable/community.svg)](https://gitter.im/vue-easytable/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 # vue-easytree
 
@@ -15,7 +12,7 @@ A tree component based on vue2.x that supports a small amount of data or a large
 
 Based on the tree style and function extracted from [element-ui](https://element.eleme.cn/#/en-US/component/tree)(License:MIT), combined with [vue-virtual-scroller](https://github.com/Akryum/vue-virtual-scroller)(License:MIT) tree component.
 
-## v1.0.0 Feature List[![npm](https://img.shields.io/npm/v/vue-easytable.svg)](https://www.npmjs.com/package/vue-easytable )
+## v1.0 Feature List [![npm](https://img.shields.io/badge/npm-v1.0.1-blue)](https://www.npmjs.com/package/@wchbrad/vue-easytree)
 
 -  Large data volume supports virtual scrolling
 -  Display of basic tree data
@@ -34,9 +31,6 @@ Based on the tree style and function extracted from [element-ui](https://element
 -  Support virtual scrolling
 -  Not only supports tree-shaped data display with large amounts of data, but also supports data manipulation and modification
 
-## Demo
-
-xxxxx- need feature demonstration
 
 ## Install
 
