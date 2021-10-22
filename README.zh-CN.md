@@ -52,9 +52,9 @@ yarn add @wchbrad/vue-easy-tree
 
 ```JS
 import Vue from "vue";
-import VueEasyTree from "vue-easy-tree";
+import VueEasyTree from "@wchbrad/vue-easy-tree";
 // 样式文件，可以根据需要自定义样式或主题
-import "vue-easy-tree/src/assets/index.scss"
+import "@wchbrad/vue-easy-tree/src/assets/index.scss"
 
 Vue.use(VueEasyTree)
 ```
@@ -64,9 +64,9 @@ Vue.use(VueEasyTree)
 在组件中引入：
 
 ```JS
-import VueEasyTree from "vue-easy-tree";
+import VueEasyTree from "@wchbrad/vue-easy-tree";
 // 样式文件，可以根据需要自定义样式或主题
-import "vue-easy-tree/src/assets/index.scss"
+import "@wchbrad/vue-easy-tree/src/assets/index.scss"
 
 export default {
   components: {
@@ -142,16 +142,16 @@ export default {
 $--color-primary: #ea5404;
 
 /* 改变 icon 字体路径变量，必需 */
-$--font-path: "~vue-easy-tree/src/assets/fonts";
+$--font-path: "~@wchbrad/vue-easy-tree/src/assets/fonts";
 
-@import "vue-easy-tree/src/assets/index.scss";
+@import "@wchbrad/vue-easy-tree/src/assets/index.scss";
 ```
-:warning: 需要注意的是，覆盖字体路径变量是必需的，将其赋值为 vue-easy-tree 中 icon 图标所在的相对路径即可。
+:warning: 需要注意的是，覆盖字体路径变量是必需的，将其赋值为 @wchbrad/vue-easy-tree 中 icon 图标所在的相对路径即可。
 
 然后在 `main.js` 中直接引入以上样式文件即可：
 ```JS
 import Vue from 'vue'
-import VueEasyTree from "vue-easy-tree";
+import VueEasyTree from "@wchbrad/vue-easy-tree";
 import "./css/ve-tree-var.scss"
 
 Vue.use(VueEasyTree)

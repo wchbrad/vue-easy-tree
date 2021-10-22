@@ -52,9 +52,9 @@ Import in the `main.js` file:
 
 ```JS
 import Vue from "vue";
-import VueEasyTree from "vue-easy-tree";
+import VueEasyTree from "@wchbrad/vue-easy-tree";
 // Style file, you can customize the style or theme according to your needs
-import "vue-easy-tree/src/assets/index.scss"
+import "@wchbrad/vue-easy-tree/src/assets/index.scss"
 
 Vue.use(VueEasyTree)
 ```
@@ -64,9 +64,9 @@ Vue.use(VueEasyTree)
 Import in the component：
 
 ```JS
-import VueEasyTree from "vue-easy-tree";
+import VueEasyTree from "@wchbrad/vue-easy-tree";
 // Style file, you can customize the style or theme according to your needs
-import "vue-easy-tree/src/assets/index.scss"
+import "@wchbrad/vue-easy-tree/src/assets/index.scss"
 
 export default {
   components: {
@@ -142,16 +142,16 @@ By creating a new style file, such as: `ve-tree-var.scss`, write the following c
 $--color-primary: #ea5404;
 
 /* Change the icon font path variable, required */
-$--font-path: "~vue-easy-tree/src/assets/fonts";
+$--font-path: "~@wchbrad/vue-easy-tree/src/assets/fonts";
 
-@import "vue-easy-tree/src/assets/index.scss";
+@import "@wchbrad/vue-easy-tree/src/assets/index.scss";
 ```
-:warning: It should be noted that it is necessary to override the font path variable, and assign it to the relative path where the icon icon in vue-easy-tree is located.
+:warning: It should be noted that it is necessary to override the font path variable, and assign it to the relative path where the icon icon in @wchbrad/vue-easy-tree is located.
 
 Then directly import the above style files in `main.js`：
 ```JS
 import Vue from 'vue'
-import VueEasyTree from "vue-easy-tree";
+import VueEasyTree from "@wchbrad/vue-easy-tree";
 import "./css/ve-tree-var.scss"
 
 Vue.use(VueEasyTree)
