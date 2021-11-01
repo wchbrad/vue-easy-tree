@@ -1,7 +1,7 @@
 {
     "name": "@wchbrad/vue-easy-tree",
     "description": "A Vue.js project",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "author": "wchbrad <chao.wu.brad@foxmail.com>",
     "license": "MIT",
     "private": false,
