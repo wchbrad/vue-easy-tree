@@ -1,7 +1,8 @@
-[![npm](https://img.shields.io/badge/npm-v1.0.1-blue)](https://www.npmjs.com/package/@wchbrad/vue-easy-tree)
+[![npm](https://img.shields.io/npm/v/@wchbrad/vue-easy-tree.svg)](https://www.npmjs.com/package/@wchbrad/vue-easy-tree)
 [![vue2](https://img.shields.io/badge/vue-2.6+-brightgreen.svg)](https://vuejs.org/)
-[![last commit](https://img.shields.io/badge/last--commit-today-green)](https://www.npmjs.com/package/@wchbrad/vue-easy-tree)
-[![license](https://img.shields.io/npm/l/vue-easytable.svg?maxAge=2592000)](http://www.opensource.org/licenses/mit-license.php)
+[![last commit](https://img.shields.io/github/last-commit/wchbrad/vue-easy-tree.svg)](https://www.npmjs.com/package/@wchbrad/vue-easy-tree)
+[![NPM downloads](https://img.shields.io/npm/dm/@wchbrad/vue-easy-tree.svg?style=flat)](https://npmjs.org/package/@wchbrad/vue-easy-tree)
+[![license](https://img.shields.io/npm/l/@wchbrad/vue-easy-tree.svg?maxAge=2592000)](http://www.opensource.org/licenses/mit-license.php)
 
 # vue-easy-tree
 
@@ -12,7 +13,7 @@ A tree component based on vue2.x that supports a small amount of data or a large
 
 Based on the tree style and function extracted from [element-ui](https://element.eleme.cn/#/en-US/component/tree)(License:MIT), combined with [vue-virtual-scroller](https://github.com/Akryum/vue-virtual-scroller)(License:MIT) tree component.
 
-## v1.0 Feature List [![npm](https://img.shields.io/badge/npm-v1.0.1-blue)](https://www.npmjs.com/package/@wchbrad/vue-easy-tree)
+## v1.0 Feature List [![npm](https://img.shields.io/npm/v/@wchbrad/vue-easy-tree.svg)](https://www.npmjs.com/package/@wchbrad/vue-easy-tree)
 
 -  Large data volume supports virtual scrolling
 -  Display of basic tree data

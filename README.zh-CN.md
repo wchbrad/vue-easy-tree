@@ -1,7 +1,8 @@
-[![npm](https://img.shields.io/badge/npm-v1.0.1-blue)](https://www.npmjs.com/package/@wchbrad/vue-easy-tree)
+[![npm](https://img.shields.io/npm/v/@wchbrad/vue-easy-tree.svg)](https://www.npmjs.com/package/@wchbrad/vue-easy-tree)
 [![vue2](https://img.shields.io/badge/vue-2.6+-brightgreen.svg)](https://vuejs.org/)
-[![last commit](https://img.shields.io/badge/last--commit-today-green)](https://www.npmjs.com/package/@wchbrad/vue-easy-tree)
-[![license](https://img.shields.io/npm/l/vue-easytable.svg?maxAge=2592000)](http://www.opensource.org/licenses/mit-license.php)
+[![last commit](https://img.shields.io/github/last-commit/wchbrad/vue-easy-tree.svg)](https://www.npmjs.com/package/@wchbrad/vue-easy-tree)
+[![NPM downloads](https://img.shields.io/npm/dm/@wchbrad/vue-easy-tree.svg?style=flat)](https://npmjs.org/package/@wchbrad/vue-easy-tree)
+[![license](https://img.shields.io/npm/l/@wchbrad/vue-easy-tree.svg?maxAge=2592000)](http://www.opensource.org/licenses/mit-license.php)
 
 # vue-easy-tree
 
@@ -13,7 +14,7 @@
 
 基于[element-ui](https://element.eleme.cn/#/zh-CN/component/tree)(License:MIT)中抽取的tree样式和功能，结合[vue-virtual-scroller](https://github.com/Akryum/vue-virtual-scroller)(License:MIT)所做的树组件。
 
-## v1.0.0 功能列表 [![npm](https://img.shields.io/badge/npm-v1.0.1-blue)](https://www.npmjs.com/package/@wchbrad/vue-easy-tree)
+## v1.0 功能列表 [![npm](https://img.shields.io/npm/v/@wchbrad/vue-easy-tree.svg)](https://www.npmjs.com/package/@wchbrad/vue-easy-tree)
 
 -   大数据量支持虚拟滚动
 -   基本树形数据的展示
