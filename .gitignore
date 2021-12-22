@@ -2,6 +2,7 @@
 node_modules/
 npm-debug.log
 yarn-error.log
+package-lock.json
 
 # Editor directories and files
 *.lock
@@ -10,3 +11,4 @@ yarn-error.log
 *.ntvs*
 *.njsproj
 *.sln
+/package-lock.json
