@@ -1,12 +1,19 @@
 {
     "name": "@wchbrad/vue-easy-tree",
     "description": "A Vue.js project",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "author": "wchbrad <chao.wu.brad@foxmail.com>",
     "license": "MIT",
     "private": false,
     "main": "./dist/vue-easy-tree.js",
-    "keywords": ["virtual", "tree", "bigdata", "largedata", "lazy loading", "vue"],
+    "keywords": [
+        "virtual",
+        "tree",
+        "bigdata",
+        "largedata",
+        "lazy loading",
+        "vue"
+    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/wchbrad/vue-easy-tree.git"

@@ -10,7 +10,7 @@
     role="tree"
   >
     <RecycleScroller
-      v-if="height"
+      v-if="height && !isEmpty"
       :style="{
         height: height,
         'overflow-y': 'auto',
@@ -33,7 +33,7 @@
     </RecycleScroller>
     <el-tree-node
       v-for="child in root.childNodes"
-      v-else
+      v-else-if="!isEmpty"
       :key="getNodeKey(child)"
       :node="child"
       :props="props"
