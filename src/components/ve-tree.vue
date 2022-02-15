@@ -235,7 +235,9 @@ export default {
       return treeData.reduce((smoothArr, data) => {
         if (data.visible) {
           // Mark different types to avoid being optimized out when assembled into the same dom
-          data.type = `${data.level}-${data.expanded}-${data.checked}`;
+          data.type = this.showCheckbox
+            ? `${data.level}-${data.checked}-${data.indeterminate}`
+            : `${data.level}-${data.expanded}`;
           smoothArr.push(data);
         }
         if (data.expanded && data.childNodes.length) {

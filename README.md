@@ -78,6 +78,8 @@ export default {
 
 ## Usage:
 
+:warning: When using virtual scrolling, `node-key` must be set
+
 ```html
 <template>
   <div class="ve-tree" style="height:calc(100vh - 20px)">

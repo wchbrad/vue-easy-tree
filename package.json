@@ -1,10 +1,10 @@
 {
     "name": "@wchbrad/vue-easy-tree",
     "description": "A Vue.js project",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "author": "wchbrad <chao.wu.brad@foxmail.com>",
     "license": "MIT",
-    "private": false,
+    "private": true,
     "main": "./dist/vue-easy-tree.js",
     "keywords": [
         "virtual",

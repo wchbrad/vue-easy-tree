@@ -78,6 +78,8 @@ export default {
 
 ## 使用:
 
+:warning: 在使用虚拟滚动时，必须设置 `node-key`。
+
 ```html
 <template>
   <div class="ve-tree" style="height:calc(100vh - 20px)">
