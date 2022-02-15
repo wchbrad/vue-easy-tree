@@ -4,7 +4,7 @@
     "version": "1.0.6",
     "author": "wchbrad <chao.wu.brad@foxmail.com>",
     "license": "MIT",
-    "private": true,
+    "private": false,
     "main": "./dist/vue-easy-tree.js",
     "keywords": [
         "virtual",
