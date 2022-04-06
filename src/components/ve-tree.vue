@@ -20,9 +20,10 @@
       :items="dataList"
       :item-size="26"
       :buffer="50"
-      v-slot="{ item }"
+      v-slot="{ active,item }"
     >
       <ElTreeVirtualNode
+        v-if="active"
         style="height: 26px;"
         :node="item"
         :renderContent="renderContent"
