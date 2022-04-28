@@ -308,6 +308,10 @@ export default {
       this.store.setChecked(data, checked, deep);
     },
 
+    setCheckedAll(checked = true) {
+      this.store.setCheckedAll(checked);
+    },
+
     getHalfCheckedNodes() {
       return this.store.getHalfCheckedNodes();
     },

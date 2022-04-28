@@ -327,6 +327,15 @@ export default class TreeStore {
         }
     }
 
+    setCheckedAll(checked = true) {
+      const allNodes = this._getAllNodes();
+
+      for (const node of allNodes) {
+        node.indeterminate = false;
+        node.checked = checked;
+      }
+    }
+
     getCurrentNode() {
         return this.currentNode;
     }
