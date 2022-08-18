@@ -109,7 +109,9 @@ export default {
         ) : tree.$scopedSlots.default ? (
           tree.$scopedSlots.default({ node, data })
         ) : (
-          <span class="el-tree-node__label">{node.label}</span>
+          h("span", {
+            class: "el-tree-node__label"
+          }, node.label)
         );
       }
     }
