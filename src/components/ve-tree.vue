@@ -18,14 +18,15 @@
       }"
       key-field="key"
       :items="dataList"
-      :item-size="26"
+      :item-size="itemSize"
       :buffer="50"
       v-slot="{ active,item }"
     >
       <ElTreeVirtualNode
         v-if="active"
-        style="height: 26px;"
+        :style="`height: ${itemSize}px;`"
         :node="item"
+        :itemSize="itemSize"
         :renderContent="renderContent"
         :showCheckbox="showCheckbox"
         :render-after-expand="renderAfterExpand"
@@ -100,6 +101,10 @@ export default {
     checkDescendants: {
       type: Boolean,
       default: false
+    },
+    itemSize:{
+      type: Number,
+      default: 26
     },
     autoExpandParent: {
       type: Boolean,
