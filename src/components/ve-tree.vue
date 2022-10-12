@@ -1,6 +1,6 @@
 <template>
   <div
-    class="el-tree"
+    class="el-tree _veTree"
     :class="{
       'el-tree--highlight-current': highlightCurrent,
       'is-dragging': !!dragState.draggingNode,
@@ -39,6 +39,7 @@
       :key="getNodeKey(child)"
       :node="child"
       :props="props"
+      :itemSize="itemSize"
       :show-checkbox="showCheckbox"
       :render-content="renderContent"
       :render-after-expand="renderAfterExpand"
