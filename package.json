@@ -24,7 +24,7 @@
     "scripts": {
         "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
         "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-        "sass:fix":"sass-migrator division **/*.scss"
+        "sass:fix": "sass-migrator division **/*.scss"
     },
     "browserslist": [
         "> 1%",
@@ -36,6 +36,7 @@
         "vue-virtual-scroller": "^1.0.10"
     },
     "devDependencies": {
+        "@babel/core": "^7.19.3",
         "@babel/preset-env": "^7.19.4",
         "babel-loader": "^8.2.5",
         "babel-plugin-transform-vue-jsx": "^3.7.0",
