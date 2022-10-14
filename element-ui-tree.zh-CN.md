@@ -808,7 +808,7 @@
 | filter-node-method    | 对树节点进行筛选时执行的方法，返回 true 表示这个节点可以显示，返回 false 则表示这个节点会被隐藏                                            | Function(value, data, node)            | —      | —      |
 | accordion             | 是否每次只打开一个同级树节点展开                                                                                                           | boolean                                | —      | false  |
 | indent                | 相邻级节点间的水平缩进，单位为像素                                                                                                         | number                                 | —      | 16     |
-| item-size           | 每个节点的高度,单位为像素                                                                                                                       | number                                 | —               | 26      |
+| item-size             | 每个节点的高度,单位为像素                                                                                                                  | number                                 | —      | 26     |
 | icon-class            | 自定义树节点的图标                                                                                                                         | string                                 | -      | -      |
 | lazy                  | 是否懒加载子节点，需与 load 方法结合使用                                                                                                   | boolean                                | —      | false  |
 | draggable             | 是否开启拖拽节点功能                                                                                                                       | boolean                                | —      | false  |
@@ -835,6 +835,7 @@
 | setCheckedNodes     | 设置目前勾选的节点，使用此方法必须设置 node-key 属性                                      | (nodes) 接收勾选节点数据的数组                                                                                                                    |
 | getCheckedKeys      | 若节点可被选择（即 `show-checkbox` 为 `true`），则返回目前被选中的节点的 key 所组成的数组 | (leafOnly) 接收一个 boolean 类型的参数，若为 `true` 则仅返回被选中的叶子节点的 keys，默认值为 `false`                                             |
 | setCheckedKeys      | 通过 keys 设置目前勾选的节点，使用此方法必须设置 node-key 属性                            | (keys, leafOnly) 接收两个参数，1. 勾选节点的 key 的数组 2. boolean 类型的参数，若为 `true` 则仅设置叶子节点的选中状态，默认值为 `false`           |
+| setCheckedAll       | 虚拟滚动时，快速全选或者清除全选的方法，使用setCheckedKeys可能会卡顿                      | (checked) 接收一个 boolean 类型的参数，若为 `true` 则全选所有节点，若为 `false` 则取消所有节点的选中/半选状态，默认值为 `false`                   |
 | setChecked          | 通过 key / data 设置某个节点的勾选状态，使用此方法必须设置 node-key 属性                  | (key/data, checked, deep) 接收三个参数，1. 勾选节点的 key 或者 data 2. boolean 类型，节点是否选中  3. boolean 类型，是否设置子节点 ，默认为 false |
 | getHalfCheckedNodes | 若节点可被选择（即 `show-checkbox` 为 `true`），则返回目前半选中的节点所组成的数组        | -                                                                                                                                                 |
 | getHalfCheckedKeys  | 若节点可被选择（即 `show-checkbox` 为 `true`），则返回目前半选中的节点的 key 所组成的数组 | -                                                                                                                                                 |

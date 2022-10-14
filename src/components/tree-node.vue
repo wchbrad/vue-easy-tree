@@ -8,7 +8,7 @@
       'is-current': node.isCurrent,
       'is-hidden': !node.visible,
       'is-focusable': !node.disabled,
-      'is-checked': !node.disabled && node.checked
+      'is-checked': !node.disabled && node.checked,
     }"
     role="treeitem"
     tabindex="-1"
@@ -17,7 +17,7 @@
     :aria-checked="node.checked"
     :draggable="tree.draggable"
     @click.stop="handleClick"
-    @contextmenu="$event => this.handleContextMenu($event)"
+    @contextmenu="($event) => this.handleContextMenu($event)"
     @dragstart.stop="handleDragStart"
     @dragover.stop="handleDragOver"
     @dragend.stop="handleDragEnd"
@@ -25,16 +25,18 @@
   >
     <div
       class="el-tree-node__content"
-      :style="{ 'padding-left': (node.level - 1) * tree.indent + 'px' }"
+      :style="`padding-left:${
+        (node.level - 1) * tree.indent
+      }px;height: ${itemSize}px;`"
     >
       <span
         :class="[
           {
             'is-leaf': node.isLeaf,
-            expanded: !node.isLeaf && expanded
+            expanded: !node.isLeaf && expanded,
           },
           'el-tree-node__expand-icon',
-          tree.iconClass ? tree.iconClass : 'el-icon-caret-right'
+          tree.iconClass ? tree.iconClass : 'el-icon-caret-right',
         ]"
         @click.stop="handleExpandIconClick"
       ></span>
@@ -63,11 +65,11 @@
         <el-tree-node
           v-for="child in node.childNodes"
           :key="getNodeKey(child)"
+          :node="child"
+          :item-size="itemSize"
           :render-content="renderContent"
           :render-after-expand="renderAfterExpand"
           :show-checkbox="showCheckbox"
-          :node="child"
-          :itemSize="itemSize"
           @node-expand="handleChildNodeExpand"
         ></el-tree-node>
       </div>
@@ -92,60 +94,61 @@ export default {
     NodeContent: {
       props: {
         node: {
-          required: true
-        }
+          required: true,
+        },
       },
       render(h) {
         const parent = this.$parent;
         const tree = parent.tree;
         const node = this.node;
         const { data, store } = node;
-        return parent.renderContent ? (
-          parent.renderContent.call(parent._renderProxy, h, {
-            _self: tree.$vnode.context,
-            node,
-            data,
-            store
-          })
-        ) : tree.$scopedSlots.default ? (
-          tree.$scopedSlots.default({ node, data })
-        ) : (
-          h("span", {
-            class: "el-tree-node__label"
-          }, node.label)
-        );
-      }
-    }
+        return parent.renderContent
+          ? parent.renderContent.call(parent._renderProxy, h, {
+              _self: tree.$vnode.context,
+              node,
+              data,
+              store,
+            })
+          : tree.$scopedSlots.default
+          ? tree.$scopedSlots.default({ node, data })
+          : h(
+              "span",
+              {
+                class: "el-tree-node__label",
+              },
+              node.label
+            );
+      },
+    },
   },
 
   mixins: [emitter, commonMethods],
 
   props: {
-
     node: {
       type: Object,
       default() {
         return {};
-      }
+      },
     },
     props: {
       type: Object,
       default() {
         return {};
-      }
+      },
     },
     renderContent: Function,
     renderAfterExpand: {
       type: Boolean,
-      default: true
+      default: true,
     },
     showCheckbox: {
       type: Boolean,
-      default: false
+      default: false,
     },
-    itemSize:{
+    itemSize: {
       type: Number,
-      default: 26
+      default: 26,
     },
   },
 
@@ -155,7 +158,7 @@ export default {
       expanded: false,
       childNodeRendered: false,
       oldChecked: null,
-      oldIndeterminate: null
+      oldIndeterminate: null,
     };
   },
 
@@ -174,21 +177,15 @@ export default {
       if (val) {
         this.childNodeRendered = true;
       }
-    }
+    },
   },
 
   methods: {},
-  
+
   created() {
-    this.init(this.$parent); 
-    document.documentElement.style.setProperty('--virtual-tree-node-height',`${this.itemSize}px`)
-  }
+    this.init(this.$parent);
+  },
 };
 </script>
 <style>
-._veTree .el-tree-node__content{
-  line-height: var(--virtual-tree-node-height)!important;
-  height: var(--virtual-tree-node-height)!important;
-}
-
 </style>

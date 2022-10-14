@@ -1,11 +1,11 @@
 <template>
   <div
-    class="el-tree _veTree"
+    class="el-tree"
     :class="{
       'el-tree--highlight-current': highlightCurrent,
       'is-dragging': !!dragState.draggingNode,
       'is-drop-not-allow': !dragState.allowDrop,
-      'is-drop-inner': dragState.dropType === 'inner'
+      'is-drop-inner': dragState.dropType === 'inner',
     }"
     role="tree"
   >
@@ -14,37 +14,38 @@
       :style="{
         height: height,
         'overflow-y': 'auto',
-        'scroll-behavior': 'smooth'
+        'scroll-behavior': 'smooth',
       }"
       key-field="key"
       :items="dataList"
       :item-size="itemSize"
       :buffer="50"
-      v-slot="{ active,item }"
+      v-slot="{ active, item }"
     >
       <ElTreeVirtualNode
         v-if="active"
         :style="`height: ${itemSize}px;`"
         :node="item"
-        :itemSize="itemSize"
-        :renderContent="renderContent"
-        :showCheckbox="showCheckbox"
+        :item-size="itemSize"
+        :render-content="renderContent"
+        :show-checkbox="showCheckbox"
         :render-after-expand="renderAfterExpand"
         @node-expand="handleNodeExpand"
       />
     </RecycleScroller>
-    <el-tree-node
-      v-for="child in root.childNodes"
-      v-else-if="!isEmpty"
-      :key="getNodeKey(child)"
-      :node="child"
-      :props="props"
-      :itemSize="itemSize"
-      :show-checkbox="showCheckbox"
-      :render-content="renderContent"
-      :render-after-expand="renderAfterExpand"
-      @node-expand="handleNodeExpand"
-    ></el-tree-node>
+    <template v-else-if="!height">
+      <el-tree-node
+        v-for="child in visibleChildNodes"
+        :key="getNodeKey(child)"
+        :node="child"
+        :props="props"
+        :itemSize="itemSize"
+        :show-checkbox="showCheckbox"
+        :render-content="renderContent"
+        :render-after-expand="renderAfterExpand"
+        @node-expand="handleNodeExpand"
+      ></el-tree-node>
+    </template>
     <div v-if="isEmpty" class="el-tree__empty-block">
       <span class="el-tree__empty-text">{{ emptyText }}</span>
     </div>
@@ -73,43 +74,43 @@ export default {
     // VirtualList,
     RecycleScroller,
     ElTreeNode,
-    ElTreeVirtualNode
+    ElTreeVirtualNode,
   },
 
   mixins: [emitter],
   props: {
     data: {
-      type: Array
+      type: Array,
     },
     emptyText: {
       type: String,
       default() {
         return "暂无数据";
-      }
+      },
     },
     renderAfterExpand: {
       type: Boolean,
-      default: true
+      default: true,
     },
     nodeKey: String,
     checkStrictly: Boolean,
     defaultExpandAll: Boolean,
     expandOnClickNode: {
       type: Boolean,
-      default: true
+      default: true,
     },
     checkOnClickNode: Boolean,
     checkDescendants: {
       type: Boolean,
-      default: false
+      default: false,
     },
-    itemSize:{
+    itemSize: {
       type: Number,
-      default: 26
+      default: 26,
     },
     autoExpandParent: {
       type: Boolean,
-      default: true
+      default: true,
     },
     defaultCheckedKeys: Array,
     defaultExpandedKeys: Array,
@@ -117,11 +118,11 @@ export default {
     renderContent: Function,
     showCheckbox: {
       type: Boolean,
-      default: false
+      default: false,
     },
     draggable: {
       type: Boolean,
-      default: false
+      default: false,
     },
     allowDrag: Function,
     allowDrop: Function,
@@ -131,13 +132,13 @@ export default {
         return {
           children: "children",
           label: "label",
-          disabled: "disabled"
+          disabled: "disabled",
         };
-      }
+      },
     },
     lazy: {
       type: Boolean,
-      default: false
+      default: false,
     },
     highlightCurrent: Boolean,
     load: Function,
@@ -145,21 +146,21 @@ export default {
     accordion: Boolean,
     indent: {
       type: Number,
-      default: 18
+      default: 18,
     },
     iconClass: String,
     height: {
       type: [String, Number],
-      default: 0
+      default: 0,
     },
     extraLine: {
       type: Number,
-      default: 8
+      default: 8,
     },
     keeps: {
       type: Number,
-      default: 40
-    } // 计算希望渲染的tree节点数
+      default: 40,
+    }, // 计算希望渲染的tree节点数
   },
 
   data() {
@@ -173,9 +174,9 @@ export default {
         showDropIndicator: false,
         draggingNode: null,
         dropNode: null,
-        allowDrop: true
+        allowDrop: true,
       },
-      treeNodeName: this.height ? "ElTreeVirtualNode" : "ElTreeNode"
+      treeNodeName: this.height ? "ElTreeVirtualNode" : "ElTreeNode",
     };
   },
 
@@ -186,7 +187,7 @@ export default {
       },
       get() {
         return this.data;
-      }
+      },
     },
 
     treeItemArray() {
@@ -202,14 +203,20 @@ export default {
       );
     },
 
+    visibleChildNodes() {
+      return this.root.childNodes.filter(() => {
+        return !this.isEmpty;
+      });
+    },
+
     dataList() {
       const a = this.smoothTree(this.root.childNodes);
       const b = [];
-      a.forEach(e => {
+      a.forEach((e) => {
         b.push(e.key);
       });
       return a;
-    }
+    },
   },
 
   watch: {
@@ -227,14 +234,14 @@ export default {
     },
 
     checkboxItems(val) {
-      Array.prototype.forEach.call(val, checkbox => {
+      Array.prototype.forEach.call(val, (checkbox) => {
         checkbox.setAttribute("tabindex", -1);
       });
     },
 
     checkStrictly(newVal) {
       this.store.checkStrictly = newVal;
-    }
+    },
   },
 
   methods: {
@@ -418,7 +425,7 @@ export default {
         ev.preventDefault();
         hasInput.click();
       }
-    }
+    },
   },
 
   created() {
@@ -437,7 +444,7 @@ export default {
       defaultExpandedKeys: this.defaultExpandedKeys,
       autoExpandParent: this.autoExpandParent,
       defaultExpandAll: this.defaultExpandAll,
-      filterNodeMethod: this.filterNodeMethod
+      filterNodeMethod: this.filterNodeMethod,
     });
 
     this.root = this.store.root;
@@ -582,7 +589,7 @@ export default {
       this.$emit("node-drag-over", draggingNode.node, dropNode.node, event);
     });
 
-    this.$on("tree-node-drag-end", event => {
+    this.$on("tree-node-drag-end", (event) => {
       const { draggingNode, dropType, dropNode } = dragState;
       event.preventDefault();
       event.dataTransfer.dropEffect = "move";
@@ -641,6 +648,6 @@ export default {
   updated() {
     this.treeItems = this.$el.querySelectorAll("[role=treeitem]");
     this.checkboxItems = this.$el.querySelectorAll("input[type=checkbox]");
-  }
+  },
 };
 </script>

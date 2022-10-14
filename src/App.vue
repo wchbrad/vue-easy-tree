@@ -1,6 +1,14 @@
 <template>
-  <div class="ve-tree" style="height:calc(100vh - 20px)">
-    <vue-easy-tree ref="veTree" node-key="id" height="calc(100vh - 20px)" :data="treeData" :props="props">
+  <div class="ve-tree" style="height: calc(100vh - 20px)">
+    <vue-easy-tree
+      ref="veTree"
+      node-key="id"
+      height="calc(100vh - 20px)"
+      :data="treeData"
+      :props="props"
+      :item-size="26"
+      show-checkbox
+    >
     </vue-easy-tree>
   </div>
 </template>
@@ -11,9 +19,9 @@ export default {
     return {
       props: {
         label: "name",
-        children: "children"
+        children: "children",
       },
-      treeData: []
+      treeData: [],
     };
   },
   created() {
@@ -25,24 +33,24 @@ export default {
       data.push({
         id: `${i}`,
         name: `test-${i}`,
-        children: []
+        children: [],
       });
       for (let j = 0; j < children; j++) {
         data[i].children.push({
           id: `${i}-${j}`,
           name: `test-${i}-${j}`,
-          children: []
+          children: [],
         });
         for (let k = 0; k < base; k++) {
           data[i].children[j].children.push({
             id: `${i}-${j}-${k}`,
-            name: `test-${i}-${j}-${k}`
+            name: `test-${i}-${j}-${k}`,
           });
         }
       }
     }
     this.treeData = data;
-  }
+  },
 };
 </script>
 

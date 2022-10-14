@@ -1,30 +1,59 @@
 <template>
-  <div v-show="node.visible" ref="node" class="el-tree-node" :class="{
-    'is-expanded': expanded,
-    'is-current': node.isCurrent,
-    'is-hidden': !node.visible,
-    'is-focusable': !node.disabled,
-    'is-checked': !node.disabled && node.checked
-  }" role="treeitem" tabindex="-1" :aria-expanded="expanded" :aria-disabled="node.disabled"
-    :aria-checked="node.checked" :draggable="tree.draggable" @click.stop="handleClick"
-    @contextmenu="$event => this.handleContextMenu($event)" @dragstart.stop="handleDragStart"
-    @dragover.stop="handleDragOver" @dragend.stop="handleDragEnd" @drop.stop="handleDrop">
+  <div
+    v-show="node.visible"
+    ref="node"
+    class="el-tree-node"
+    :class="{
+      'is-expanded': expanded,
+      'is-current': node.isCurrent,
+      'is-hidden': !node.visible,
+      'is-focusable': !node.disabled,
+      'is-checked': !node.disabled && node.checked,
+    }"
+    role="treeitem"
+    tabindex="-1"
+    :aria-expanded="expanded"
+    :aria-disabled="node.disabled"
+    :aria-checked="node.checked"
+    :draggable="tree.draggable"
+    @click.stop="handleClick"
+    @contextmenu="($event) => this.handleContextMenu($event)"
+    @dragstart.stop="handleDragStart"
+    @dragover.stop="handleDragOver"
+    @dragend.stop="handleDragEnd"
+    @drop.stop="handleDrop"
+  >
     <div class="el-tree-node__content" :style="`height: ${itemSize}px;`">
-      <span aria-hidden="true" :style="{
-        'min-width': (node.level - 1) * tree.indent + 'px'
-      }"></span>
-      <span :class="[
-        {
-          'is-leaf': node.isLeaf,
-          expanded: !node.isLeaf && expanded
-        },
-        'el-tree-node__expand-icon',
-        'el-tree-node__expand-icon-no-transition',
-        tree.iconClass ? tree.iconClass : 'el-icon-caret-right'
-      ]" @click.stop="handleExpandIconClick"></span>
-      <el-checkbox v-if="showCheckbox" v-model="node.checked" :indeterminate="node.indeterminate"
-        :disabled="!!node.disabled" @click.native.stop @change="handleCheckChange"></el-checkbox>
-      <span v-if="node.loading" class="el-tree-node__loading-icon el-icon-loading"></span>
+      <span
+        aria-hidden="true"
+        :style="{
+          'min-width': (node.level - 1) * tree.indent + 'px',
+        }"
+      ></span>
+      <span
+        :class="[
+          {
+            'is-leaf': node.isLeaf,
+            expanded: !node.isLeaf && expanded,
+          },
+          'el-tree-node__expand-icon',
+          'el-tree-node__expand-icon-no-transition',
+          tree.iconClass ? tree.iconClass : 'el-icon-caret-right',
+        ]"
+        @click.stop="handleExpandIconClick"
+      ></span>
+      <el-checkbox
+        v-if="showCheckbox"
+        v-model="node.checked"
+        :indeterminate="node.indeterminate"
+        :disabled="!!node.disabled"
+        @click.native.stop
+        @change="handleCheckChange"
+      ></el-checkbox>
+      <span
+        v-if="node.loading"
+        class="el-tree-node__loading-icon el-icon-loading"
+      ></span>
       <node-content :node="node"></node-content>
     </div>
   </div>
@@ -44,49 +73,51 @@ export default {
     NodeContent: {
       props: {
         node: {
-          required: true
-        }
+          required: true,
+        },
       },
       render(h) {
         const parent = this.$parent;
         const tree = parent.tree;
         const node = this.node;
         const { data, store } = node;
-        return parent.renderContent ? (
-          parent.renderContent.call(parent._renderProxy, h, {
-            _self: tree.$vnode.context,
-            node,
-            data,
-            store
-          })
-        ) : tree.$scopedSlots.default ? (
-          tree.$scopedSlots.default({ node, data })
-        ) : (
-          h("span", {
-            class: "el-tree-node__label"
-          }, node.label)
-        );
-      }
-    }
+        return parent.renderContent
+          ? parent.renderContent.call(parent._renderProxy, h, {
+              _self: tree.$vnode.context,
+              node,
+              data,
+              store,
+            })
+          : tree.$scopedSlots.default
+          ? tree.$scopedSlots.default({ node, data })
+          : h(
+              "span",
+              {
+                class: "el-tree-node__label",
+              },
+              node.label
+            );
+      },
+    },
   },
 
   mixins: [emitter, commonMethods],
 
   props: {
-    itemSize:{
+    itemSize: {
       type: Number,
-      default: 26
+      default: 26,
     },
     node: {
       default() {
         return {};
-      }
+      },
     },
     renderContent: Function,
     showCheckbox: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
 
   data() {
@@ -95,7 +126,7 @@ export default {
       expanded: false,
       childNodeRendered: false,
       oldChecked: null,
-      oldIndeterminate: null
+      oldIndeterminate: null,
     };
   },
 
@@ -113,12 +144,12 @@ export default {
       if (val) {
         this.childNodeRendered = true;
       }
-    }
+    },
   },
   methods: {},
 
   created() {
     this.init(this.$parent.$parent);
-  }
+  },
 };
 </script>
