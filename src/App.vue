@@ -1,12 +1,7 @@
 <template>
   <div class="ve-tree" style="height:calc(100vh - 20px)">
-    <vue-easy-tree
-      ref="veTree"
-      node-key="id"
-      height="calc(100vh - 20px)"
-      :data="treeData"
-      :props="props"
-    ></vue-easy-tree>
+    <vue-easy-tree ref="veTree" node-key="id" height="calc(100vh - 20px)" :data="treeData" :props="props">
+    </vue-easy-tree>
   </div>
 </template>
 
@@ -51,5 +46,3 @@ export default {
 };
 </script>
 
-<style>
-</style>

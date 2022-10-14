@@ -67,6 +67,7 @@
           :render-after-expand="renderAfterExpand"
           :show-checkbox="showCheckbox"
           :node="child"
+          :itemSize="itemSize"
           @node-expand="handleChildNodeExpand"
         ></el-tree-node>
       </div>
@@ -120,6 +121,7 @@ export default {
   mixins: [emitter, commonMethods],
 
   props: {
+
     node: {
       type: Object,
       default() {
@@ -140,7 +142,11 @@ export default {
     showCheckbox: {
       type: Boolean,
       default: false
-    }
+    },
+    itemSize:{
+      type: Number,
+      default: 26
+    },
   },
 
   data() {
@@ -172,9 +178,17 @@ export default {
   },
 
   methods: {},
-
+  
   created() {
-    this.init(this.$parent);
+    this.init(this.$parent); 
+    document.documentElement.style.setProperty('--virtual-tree-node-height',`${this.itemSize}px`)
   }
 };
 </script>
+<style>
+._veTree .el-tree-node__content{
+  line-height: var(--virtual-tree-node-height)!important;
+  height: var(--virtual-tree-node-height)!important;
+}
+
+</style>

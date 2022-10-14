@@ -1,6 +1,6 @@
 <template>
   <div
-    class="el-tree"
+    class="el-tree _veTree"
     :class="{
       'el-tree--highlight-current': highlightCurrent,
       'is-dragging': !!dragState.draggingNode,
@@ -18,14 +18,15 @@
       }"
       key-field="key"
       :items="dataList"
-      :item-size="26"
+      :item-size="itemSize"
       :buffer="50"
       v-slot="{ active,item }"
     >
       <ElTreeVirtualNode
         v-if="active"
-        style="height: 26px;"
+        :style="`height: ${itemSize}px;`"
         :node="item"
+        :itemSize="itemSize"
         :renderContent="renderContent"
         :showCheckbox="showCheckbox"
         :render-after-expand="renderAfterExpand"
@@ -38,6 +39,7 @@
       :key="getNodeKey(child)"
       :node="child"
       :props="props"
+      :itemSize="itemSize"
       :show-checkbox="showCheckbox"
       :render-content="renderContent"
       :render-after-expand="renderAfterExpand"
@@ -100,6 +102,10 @@ export default {
     checkDescendants: {
       type: Boolean,
       default: false
+    },
+    itemSize:{
+      type: Number,
+      default: 26
     },
     autoExpandParent: {
       type: Boolean,

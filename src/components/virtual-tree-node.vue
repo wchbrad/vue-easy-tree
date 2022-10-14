@@ -9,7 +9,7 @@
     :aria-checked="node.checked" :draggable="tree.draggable" @click.stop="handleClick"
     @contextmenu="$event => this.handleContextMenu($event)" @dragstart.stop="handleDragStart"
     @dragover.stop="handleDragOver" @dragend.stop="handleDragEnd" @drop.stop="handleDrop">
-    <div class="el-tree-node__content">
+    <div class="el-tree-node__content" :style="`height: ${itemSize}px;`">
       <span aria-hidden="true" :style="{
         'min-width': (node.level - 1) * tree.indent + 'px'
       }"></span>
@@ -73,6 +73,10 @@ export default {
   mixins: [emitter, commonMethods],
 
   props: {
+    itemSize:{
+      type: Number,
+      default: 26
+    },
     node: {
       default() {
         return {};

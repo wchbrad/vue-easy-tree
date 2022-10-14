@@ -49,7 +49,6 @@
     @include e(content) {
         display: flex;
         align-items: center;
-        height: 26px;
         cursor: pointer;
         &>.el-tree-node__expand-icon {
             padding: 6px;
