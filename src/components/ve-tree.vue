@@ -20,18 +20,19 @@
       :items="dataList"
       :item-size="itemSize"
       :buffer="50"
-      v-slot="{ active, item }"
     >
-      <ElTreeVirtualNode
-        v-if="active"
-        :style="`height: ${itemSize}px;`"
-        :node="item"
-        :item-size="itemSize"
-        :render-content="renderContent"
-        :show-checkbox="showCheckbox"
-        :render-after-expand="renderAfterExpand"
-        @node-expand="handleNodeExpand"
-      />
+      <template slot-scope="{ active, item }">
+        <ElTreeVirtualNode
+          v-if="active"
+          :style="`height: ${itemSize}px;`"
+          :node="item"
+          :item-size="itemSize"
+          :render-content="renderContent"
+          :show-checkbox="showCheckbox"
+          :render-after-expand="renderAfterExpand"
+          @node-expand="handleNodeExpand"
+        />
+      </template>
     </RecycleScroller>
     <template v-else-if="!height">
       <el-tree-node
@@ -210,12 +211,7 @@ export default {
     },
 
     dataList() {
-      const a = this.smoothTree(this.root.childNodes);
-      const b = [];
-      a.forEach((e) => {
-        b.push(e.key);
-      });
-      return a;
+      return this.smoothTree(this.root.childNodes);
     },
   },
 
@@ -265,6 +261,25 @@ export default {
       if (!this.filterNodeMethod)
         throw new Error("[Tree] filterNodeMethod is required when filter");
       this.store.filter(value);
+    },
+
+    scrollToItem(key) {
+      if (this.height && !this.isEmpty) {
+        const virtualInstance = this.$children.find(
+          (c) => c.$options.name === "RecycleScroller"
+        );
+        // Automatically scroll the target item to the top
+        const index = virtualInstance.items.findIndex((e) => {
+          return e.key === key;
+        });
+        this.$nextTick(() => {
+          virtualInstance.scrollToItem(index);
+        });
+      } else {
+        throw new Error(
+          "scrollToItem can only be used when using virtual scrolling"
+        );
+      }
     },
 
     getNodeKey(node) {

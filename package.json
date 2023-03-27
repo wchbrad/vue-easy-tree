@@ -1,7 +1,7 @@
 {
     "name": "@wchbrad/vue-easy-tree",
     "description": "A Vue.js project",
-    "version": "1.0.10",
+    "version": "1.0.11",
     "author": "wchbrad <chao.wu.brad@foxmail.com>",
     "license": "MIT",
     "private": false,
@@ -32,7 +32,7 @@
     ],
     "dependencies": {
         "vue": "2.6.11",
-        "vue-virtual-scroller": "^1.0.10"
+        "vue-virtual-scroller": "~1.0.10"
     },
     "devDependencies": {
         "@babel/core": "^7.19.3",
