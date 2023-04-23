@@ -3,10 +3,10 @@
     <vue-easy-tree
       ref="veTree"
       node-key="id"
-      height="calc(100vh - 20px)"
       :data="treeData"
       :props="props"
       :item-size="26"
+      height="calc(100vh - 30px)"
       show-checkbox
     >
     </vue-easy-tree>
