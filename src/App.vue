@@ -6,6 +6,7 @@
       :data="treeData"
       :props="props"
       :item-size="26"
+      tree-line
       height="calc(100vh - 30px)"
       show-checkbox
     >

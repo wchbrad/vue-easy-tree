@@ -83,6 +83,10 @@ export default {
     data: {
       type: Array,
     },
+    treeLine: {
+      type: Boolean,
+      default: false
+    },
     emptyText: {
       type: String,
       default() {
