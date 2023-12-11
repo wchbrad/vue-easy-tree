@@ -9,8 +9,11 @@
       'is-hidden': !node.visible,
       'is-focusable': !node.disabled,
       'is-checked': !node.disabled && node.checked,
-      'is-treeline': tree.treeLine
+      'is-treeline': tree.treeLine,
+      'is-last': lastItem,
+      'is-user-node': node.isLeaf,
     }"
+    :style="{'--item-size': lineToIcon + 'px','--top': lineToTop + 'px'}"
     role="treeitem"
     tabindex="-1"
     :aria-expanded="expanded"
@@ -121,6 +124,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    lastItem: {
+      type: Boolean,
+      default: false,
+    }
   },
 
   data() {
@@ -132,7 +139,20 @@ export default {
       oldIndeterminate: null,
     };
   },
-
+  computed: {
+    // 线条和同级展开按钮平齐
+    lineToIcon() {
+      // 如果itemSize是偶数返回itemSize/2 -1 ，否则返回itemSize/2向下取整
+      return this.itemSize % 2 === 0
+        ? this.itemSize / 2 - 1
+        : Math.floor(this.itemSize / 2);
+    },
+    // 线条和上下级展开按钮靠近
+    lineToTop(){
+      const isDown = Math.floor(this.itemSize / 2) < 10 ? 1 : -1
+      return isDown * (Math.floor(this.itemSize / 2) - 10)
+    }
+  },
   watch: {
     "node.indeterminate"(val) {
       this.handleSelectChange(this.node.checked, val);
@@ -166,20 +186,23 @@ export default {
 }
 .is-treeline .ele-tree-indent::before{
   position: absolute;
-  top: -2px;
+  top: var(--top);
   right: 6px;
-  bottom: -2px;
+  bottom:  var(--top);
   border-right: 1px solid #d9d9d9;
   content: "";
 }
 .is-treeline .ele-tree-indent:last-of-type::after{
   position: absolute;
-  top: 12px;
+  top: var(--item-size);
   left: 11px;
   display: block;
   width: 14px;
   height: 1px;
   background-color: #d9d9d9;
   content: "";
+}
+.is-last .ele-tree-indent::before{
+  bottom: var(--item-size);
 }
 </style>

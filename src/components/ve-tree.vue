@@ -27,6 +27,7 @@
           :style="`height: ${itemSize}px;`"
           :node="item"
           :item-size="itemSize"
+          :last-item="item.lastItem"
           :render-content="renderContent"
           :show-checkbox="showCheckbox"
           :render-after-expand="renderAfterExpand"
@@ -246,12 +247,13 @@ export default {
 
   methods: {
     smoothTree(treeData) {
-      return treeData.reduce((smoothArr, data) => {
+      return treeData.reduce((smoothArr, data,index) => {
         if (data.visible) {
           // Mark different types to avoid being optimized out when assembled into the same dom
           data.type = this.showCheckbox
             ? `${data.level}-${data.checked}-${data.indeterminate}`
             : `${data.level}-${data.expanded}`;
+          data.lastItem = index === treeData.length - 1;
           smoothArr.push(data);
         }
         if (data.expanded && data.childNodes.length) {
