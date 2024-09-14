@@ -484,7 +484,14 @@ export default {
       } catch (e) {
         console.log(e);
       }
-      dragState.draggingNode = treeNode;
+      // dragState.draggingNode = treeNode;
+      if (treeNode) {
+        dragState.draggingNode = {
+          node: treeNode.node
+        };
+      } else {
+        dragState.draggingNode = null
+      }
       this.$emit("node-drag-start", treeNode.node, event);
     });
 
