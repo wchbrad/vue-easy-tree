@@ -45,6 +45,7 @@
       <el-checkbox
         v-if="showCheckbox"
         v-model="node.checked"
+        :key="node.key"
         :indeterminate="node.indeterminate"
         :disabled="!!node.disabled"
         @click.native.stop

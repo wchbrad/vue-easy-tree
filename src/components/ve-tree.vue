@@ -484,7 +484,6 @@ export default {
       } catch (e) {
         console.log(e);
       }
-      // dragState.draggingNode = treeNode;
       if (treeNode) {
         dragState.draggingNode = {
           node: treeNode.node
