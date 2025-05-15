@@ -16,7 +16,7 @@
         'overflow-y': 'auto',
         'scroll-behavior': 'smooth',
       }"
-      key-field="key"
+      key-field="id"
       :items="dataList"
       :item-size="itemSize"
       :buffer="50"
